@@ -43,4 +43,13 @@ public class Buffer {
             System.out.println("Posição [" + i + "] = " + SWAPMemory[i]);
         }
     }
+
+
+    public void write(String position, String value, int threadNumber, int index) {
+        System.out.println("Processo de Nº " + threadNumber + " Comando Nº " + (index + 1) + " Escrita ->" + " [Posicao: " + position + " Valor: " + value + " ]");
+    }
+
+    public void read(String position, int threadNumber, int index) {
+        System.out.println("Processo de Nº " + threadNumber + " Comando Nº " + (index + 1) + " Leitura ->" + " [Posicao: " + position + " ]");
+    }
 }
