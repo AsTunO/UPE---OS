@@ -1,46 +1,36 @@
 public class Page {
-    private Integer referencedBit;
-    private Integer modifiedBit;
-    private Integer presentBit;
+    private Boolean referencedBit;
+    private Boolean presentBit;
     private Integer pageFrame;
     
     public Page(Integer pageFrame) {
-        this.referencedBit = 1;
-        this.modifiedBit = 1;
-        this.presentBit = 1;
+        this.referencedBit = false;
+        this.presentBit = true;
         this.pageFrame = pageFrame;
     }
 
-    public Integer getReferencedBit() {
+    public Boolean getReferencedBit() {
         return referencedBit;
     }
-    public void setReferencedBit(Integer referencedBit) {
+    public void setReferencedBit(Boolean referencedBit) {
         this.referencedBit = referencedBit;
-    }
-    public Integer getModifiedBit() {
-        return modifiedBit;
-    }
-    public void setModifiedBit(Integer modifiedBit) {
-        this.modifiedBit = modifiedBit;
     }
     public Integer getPageFrame() {
         return pageFrame;
     }
     public void setPageFrame(Integer pageFrame) {
         this.pageFrame = pageFrame;
-        setModifiedBit(1);
-        setReferencedBit(1);
+        setReferencedBit(false);
     }
-    public Integer getPresentBit() {
+    public Boolean getPresentBit() {
         return presentBit;
     }
-    public void setPresentBit(Integer presentBit) {
+    public void setPresentBit(Boolean presentBit) {
         this.presentBit = presentBit;
     }
 
     @Override
     public String toString() {
-        return "Page [referencedBit=" + referencedBit + ", modifiedBit=" + modifiedBit + ", presentBit=" + presentBit
-                + ", pageFrame=" + pageFrame + "]";
+        return "Page [referencedBit=" + referencedBit + ", presentBit=" + presentBit + ", pageFrame=" + pageFrame + "]";
     }
 }
