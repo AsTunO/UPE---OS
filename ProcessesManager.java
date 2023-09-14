@@ -21,19 +21,21 @@ public class ProcessesManager extends Thread {
         System.out.println("Processo de Nº " + threadNumber + " Lista de comandos -> " + commandQueue);
 
         for (int index = 0; index < commandQueue.size(); index++) {
-            String command = commandQueue.get(index);
+            String command = commandQueue.get(index).replace(" ", "");
             if (command.contains("W")) { // Lida com comandos de escrita
                 String[] parts = command.split("-");
                 if (parts.length == 3) { // Certifica-se de que há três partes na divisão
                     String position = parts[0];
                     String value = parts[2];
                     memories.write(position, value, threadNumber, index);
+                    memories.showStateOfMemory();
                 }
             }else { // Lida com comandos de leitura
                 String[] parts = command.split("-");
                 if (parts.length == 2) { // Certifica-se de que há duas partes na divisão
                     String position = parts[0];
                     memories.read(position, threadNumber, index);
+                    memories.showStateOfMemory();
                 }
             }
         }
